@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// model Employee {
+//   id     String @id @default(auto()) @map("_id") @db.ObjectId
+//   name   String
+//   salary Float
+//   store  String
+
+//   Payment Payment[]
+// }
+
+model Payment {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  nameEmployee String
+  salary       Float
+  discounts    String?
+  store        String
+  advanceMoney String?
+  cardLoan     String?
+  overTime     String?
+  datePayment  String
+
+  salaryTotal Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
