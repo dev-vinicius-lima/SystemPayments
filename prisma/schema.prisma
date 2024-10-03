@@ -25,7 +25,7 @@ generator client {
 model Payment {
   id           String  @id @default(auto()) @map("_id") @db.ObjectId
   nameEmployee String
-  salary       Float
+  salary       String
   discounts    String?
   store        String
   advanceMoney String?
@@ -33,7 +33,7 @@ model Payment {
   overTime     String?
   datePayment  String
 
-  salaryTotal Float
+  salaryTotal String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

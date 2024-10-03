@@ -2,9 +2,11 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import { PrismaClient } from "@prisma/client";
 import route from "./routes/route";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
+app.use(cors());
 app.use(express.json());
 app.use(route);
 const prisma = new PrismaClient();
@@ -90,7 +92,7 @@ app.put("/payments/:id", async (req: Request, res: Response) => {
       where: { id: id },
       data: {
         nameEmployee: nameEmployee ?? "",
-        salary: Number(salary) ?? 0,
+        salary: salary ?? "",
         store: store ?? "",
         datePayment: datePayment ?? new Date(),
         salaryTotal: salaryTotal ?? "",
