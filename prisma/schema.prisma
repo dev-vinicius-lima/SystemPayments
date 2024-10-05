@@ -13,15 +13,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// model Employee {
-//   id     String @id @default(auto()) @map("_id") @db.ObjectId
-//   name   String
-//   salary Float
-//   store  String
-
-//   Payment Payment[]
-// }
-
 model Payment {
   id           String  @id @default(auto()) @map("_id") @db.ObjectId
   nameEmployee String
@@ -30,6 +21,7 @@ model Payment {
   store        String
   advanceMoney String?
   cardLoan     String?
+  bonification String?
   overTime     String?
   datePayment  String
 
