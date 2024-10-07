@@ -14,18 +14,18 @@ generator client {
 }
 
 model Payment {
-  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
   nameEmployee String
-  salary       String
-  discounts    String?
+  salary       Float
+  discounts    Float?
   store        String
-  advanceMoney String?
-  cardLoan     String?
-  bonification String?
-  overTime     String?
+  advanceMoney Float?
+  cardLoan     Float?
+  bonification Float?
+  overTime     Float?
   datePayment  String
 
-  salaryTotal String
+  salaryTotal Int
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

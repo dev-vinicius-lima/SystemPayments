@@ -5,15 +5,15 @@ const Prisma = new PrismaClient();
 
 interface PaymentProps {
   nameEmployee: string;
-  salary: string;
+  salary: number;
   store: string;
   datePayment: string;
-  overTime?: string | null;
-  bonification?: string | null;
-  advanceMoney?: string | null;
-  cardLoan?: string | null;
-  discounts: string | null;
-  salaryTotal: string;
+  overTime?: number | null;
+  bonification?: number | null;
+  advanceMoney?: number | null;
+  cardLoan?: number | null;
+  discounts: number | null;
+  salaryTotal: number;
 }
 
 class PaymentController {
@@ -24,13 +24,13 @@ class PaymentController {
         store,
         nameEmployee,
         salary,
-        salaryTotal = "",
+        salaryTotal = 0,
         datePayment = "",
-        overTime = "",
-        bonification = "",
-        advanceMoney = "",
-        cardLoan = "",
-        discounts = "",
+        overTime = 0,
+        bonification = 0,
+        advanceMoney = 0,
+        cardLoan = 0,
+        discounts = 0,
       } = body;
 
       const payment: PaymentProps = await Prisma.payment.create({

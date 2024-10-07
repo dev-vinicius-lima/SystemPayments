@@ -92,14 +92,14 @@ app.put("/payments/:id", async (req: Request, res: Response) => {
       where: { id: id },
       data: {
         nameEmployee: nameEmployee ?? "",
-        salary: salary ?? "",
+        salary: salary ?? 0,
         store: store ?? "",
         datePayment: datePayment ?? new Date(),
-        salaryTotal: salaryTotal ?? "",
-        overTime: overTime ?? "",
-        advanceMoney: advanceMoney ?? "",
-        cardLoan: cardLoan ?? "",
-        discounts: discounts ?? "",
+        salaryTotal: salaryTotal ?? 0,
+        overTime: overTime ?? 0,
+        advanceMoney: advanceMoney ?? 0,
+        cardLoan: cardLoan ?? 0,
+        discounts: discounts ?? 0,
       },
     });
 
