@@ -11,51 +11,6 @@ app.use(express.json());
 app.use(route);
 const prisma = new PrismaClient();
 
-// app.post("/payments", async (req: Request, res: Response) => {
-//   try {
-//     const {
-//       store,
-//       nameEmployee,
-//       salary,
-//       salaryTotal,
-//       datePayment = "",
-//       overTime = "",
-//       advanceMoney = "",
-//       cardLoan = "",
-//       discounts = "",
-//     } = req.body;
-
-//     const payment: PaymentProps = await prisma.payment.create({
-//       data: {
-//         nameEmployee: nameEmployee ?? "",
-//         salary: Number(salary) ?? 0,
-//         store: store ?? "",
-//         salaryTotal: salaryTotal ?? "",
-//         datePayment: datePayment ?? "",
-//         overTime: overTime ?? "",
-//         advanceMoney: advanceMoney ?? "",
-//         cardLoan: cardLoan ?? "",
-//         discounts: discounts ?? "",
-//       } as PaymentProps,
-//     });
-
-//     res.status(201).json({ message: "Pagamento criado com sucesso!", payment });
-//   } catch (error) {
-//     console.log("Erro ao criar o pagamento /payments", error);
-//     res.status(500).json({ error: "Erro ao criar o pagamento" });
-//   }
-// });
-
-// app.get("/payments", async (req: Request, res: Response) => {
-//   try {
-//     const payments = await prisma.payment.findMany();
-//     res.status(200).json({ payments });
-//   } catch (error) {
-//     console.log("Erro ao buscar os pagamentos /payments", error);
-//     res.status(500).json({ error: "Erro ao buscar os pagamentos" });
-//   }
-// });
-
 app.get("/payments/:id", async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
