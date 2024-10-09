@@ -83,6 +83,5 @@ app.delete("/payments/:id", async (req: Request, res: Response) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`Database connected: ${process.env.DATABASE_URL}`);
   console.log(`Listening on port ${process.env.PORT || 3000}`);
 });
